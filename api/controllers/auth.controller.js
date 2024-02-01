@@ -18,7 +18,7 @@ export const signup = async (req, res) => {
   const hashedPassword = bcryptjs.hashSync(password, 10);
 
   const newUser = new User({
-    username,
+    username, //After ES6, don't need to put username:username if key value is similar. 
     email,
     password: hashedPassword,
   });
