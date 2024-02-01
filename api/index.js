@@ -22,7 +22,7 @@ app.use(express.json());
 app.listen(3000, () => {
   console.log("Server running on port 3000.");
 });
-
+//adds an s at the end of user in MongoDB. 
 app.use('/api/user', userRoutes);
 app.use('/api/auth', authRoutes);
 
