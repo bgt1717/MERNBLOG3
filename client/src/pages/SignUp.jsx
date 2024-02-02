@@ -10,11 +10,14 @@ export default function SignUp() {
   const handleChange = (e) => {
     //...formData spread operator keeps previous value (u..s..e..r..n..a..m..e --> username stored as object {username: 'user',email: 'dsadasdadsa@gmail.com, password:'adsadasd' }),
     //  name, email, kept when entered. target.id is name,  target.value is value.
+    // trim removes white space when the fields are populated.
     setFormData({ ...formData, [e.target.id]: e.target.value.trim() });
   };
   const handleSubmit = async (e) => {
     //Prevent default behavior of the form. When submiting, usually the form is refreshed.
     e.preventDefault();
+
+    //if the form data is not available, set an error message.
     if (!formData.username || !formData.email || !formData.password) {
       return setErrorMessage('Please fill out all fields.');
     }
@@ -109,6 +112,7 @@ export default function SignUp() {
             Sign In
           </Link>
         </div>
+        {/* if there is an errorMessage that is returned to the useState activating errorMessage, make an alert in flowbite. */}
         {errorMessage && (
             <Alert className='mt-5' color='failure'>
               {errorMessage}
