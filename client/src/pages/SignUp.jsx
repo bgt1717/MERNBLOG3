@@ -23,6 +23,7 @@ export default function SignUp() {
     }
     try {
       setLoading(true);
+      // If there's a previous Error message, setErrorMessage is set to null. 
       setErrorMessage(null);
       const res = await fetch('/api/auth/signup', {
         method: 'POST',
@@ -33,10 +34,12 @@ export default function SignUp() {
       if (data.success === false) {
         return setErrorMessage(data.message);
       }
+      //After the information is fetched, theloading is set to false. 
       setLoading(false);
       if(res.ok) {
         navigate('/sign-in');
       }
+     // If an error is caught, error message is presented. 
     } catch (error) {
       setErrorMessage(error.message);
       setLoading(false);
