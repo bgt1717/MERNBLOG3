@@ -30,7 +30,7 @@ export default function SignIn() {
     try {
       // setLoading(true);
       // setErrorMessage(null);
-      dispatch(signInStart());
+      dispatch(signInStart()); // Does same as before.
       const res = await fetch("/api/auth/signin", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -43,6 +43,7 @@ export default function SignIn() {
       }
       // setLoading(false);
       if (res.ok) {
+        //data is the payload passed.
         dispatch(signInSuccess(data));
         navigate("/");
       }
