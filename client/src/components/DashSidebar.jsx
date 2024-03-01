@@ -19,10 +19,11 @@ export default function DashSidebar() {
         <Sidebar.ItemGroup>
           <Link to='/dashboard?tab=profile'>
             <Sidebar.Item
-              active={tab === 'profile'}
+              active={tab === 'profile'} //the tab is active if = profile.
               icon={HiUser}
               label={'User'}
               labelColor='dark'
+              as='div' //gets rid of anchor tag warning. 
             >
               Profile
             </Sidebar.Item>
